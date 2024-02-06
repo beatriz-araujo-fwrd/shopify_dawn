@@ -5,6 +5,11 @@
   --alpha-badge-border: 0.1;
 }
 
+#MainContent {
+  background-color: purple !important;
+  background-image: none !important;
+}
+
 .product-card-wrapper .card,
 .contains-card--product {
   --border-radius: var(--product-card-corner-radius);
