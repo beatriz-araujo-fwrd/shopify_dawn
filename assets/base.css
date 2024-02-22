@@ -3524,6 +3524,10 @@ details-disclosure > details {
   display: none !important;
 }
 
+#MainContent .skin-2 .subify-selling-plan-dropdown {
+  position: relative;
+}
+
 
 
 
