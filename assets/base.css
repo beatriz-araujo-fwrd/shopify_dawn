@@ -3520,8 +3520,8 @@ details-disclosure > details {
 
 
 
-.subify-powered-text {
-  display: none;
+#MainContent .subify-powered-text {
+  display: none !important;
 }
 
 
