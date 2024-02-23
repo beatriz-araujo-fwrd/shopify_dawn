@@ -3520,6 +3520,19 @@ details-disclosure > details {
 
 
 
+#MainContent .subify-powered-text {
+  display: none !important;
+}
+
+#MainContent .skin-2 .subify-selling-plan-toggle-dropdown-btn {
+  display: none !important;
+}
+
+#MainContent .skin-2 .subify-selling-plan-dropdown {
+  position: relative;
+  display: block !important;
+}
+
 
 
 
