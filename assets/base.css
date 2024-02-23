@@ -3518,8 +3518,7 @@ details-disclosure > details {
 }
 
 
-
-
+/* Subify */
 #MainContent .subify-powered-text {
   display: none !important;
 }
@@ -3528,10 +3527,112 @@ details-disclosure > details {
   display: none !important;
 }
 
+.subify-root {
+  opacity: 0;
+  height: 0%;
+  overflow: hidden;
+  transition: all 1s ease;
+}
+
+.subify-root.show {
+  opacity: 1;
+  height: 100%;
+  overflow: initial;
+}
+
+.subify-root .subify-widget-box {
+  display: flex;
+  flex-flow: row;
+  gap: 8px;
+  border: none;
+  margin-bottom: 8px;
+}
+
+.subify-root .skin-2 .subify-choice-box-wrapper {
+  border: 1px solid rgb(0,0,0,.8);
+  border-radius: 8px;
+  max-width: 50%;
+  width: 100%;
+  opacity: .4;
+  transition: opacity .25s ease;
+  cursor: pointer;
+}
+
+.subify-root .skin-2 .subify-choice-box-wrapper:hover {
+  opacity: .7;
+}
+
+.subify-root .skin-2 .subify-choice-box-wrapper.active {
+  opacity: 1;
+}
+
+.subify-root .skin-2 .subify-choice-box-wrapper > div {
+  flex-flow: column;
+  align-items: start;
+}
+
+.subify-root .subify-choice-wrapper {
+  max-width: unset;
+}
+
+.subify-root .subify-choice-box-wrapper label {
+  padding: 0;
+  cursor: pointer;
+}
+
+.subify-root .checkbox-label:after,
+.subify-root .checkbox-label:before {
+  display: none;
+}
+
+.subify-root .skin-2 .subify-from-price {
+  display: inline-block;
+  padding-right: 4px;
+}
+
 #MainContent .skin-2 .subify-selling-plan-dropdown {
   position: relative;
   display: block !important;
+  border: none;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
+
+.subify-root .subify-selling-plan-selector-wrapper.subify-normal-subscription-list {
+  display: flex !important;
+  flex-flow: column;
+  gap: 8px;
+}
+
+.subify-root #subify-widget-delivery-frequency-text,
+.subify-root .subify-selling-plan-section-title {
+  display: none;
+}
+
+.subify-root .skin-2 .subify-choice-price, .skin-2 .subify-selling-plan-price {
+  font-size: 18px;
+}
+
+.subify-root .subify-selling-plan-option-box {
+  border: 1px solid rgb(0,0,0,.45);
+  transition: all .25s ease;
+}
+
+.subify-root .skin-2 .subify-selling-plan-option-box:hover {
+  background: rgba(var(--textSecondaryColor, 0, 0, 0), 0.1);
+}
+
+.subify-root .skin-2 .subify-selling-plan-option-box.active {
+  background: rgba(var(--textSecondaryColor), 1);
+}
+
+.skin-2 .subify-selling-plan-option-box.active,
+.skin-2 .subify-selling-plan-option-box.active .subify-selling-plan-label,
+.skin-2 .subify-selling-plan-option-box.active .subify-discount-description,
+.skin-2 .subify-selling-plan-option-box.active .subify-selling-plan-price {
+  color: rgba(255, 255, 255, .8) !important;
+}
+
 
 
 

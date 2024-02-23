@@ -97,4 +97,57 @@ if (!customElements.get('product-info')) {
       }
     }
   );
+
+  // SUBIFY
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // Select the target node
+    const targetNode = document.querySelector('.product-form__buttons');
+
+    // Options for the observer (which mutations to observe)
+    const config = { childList: true };
+
+    // Callback function to execute when mutations in the product form container are observed (subify element is added)
+    const callback = function(mutationsList, observer) {
+        for(const mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(node => {
+                    if (node.classList && node.classList.contains('subify-root')) {
+
+                      // wait 100ms, giving time for the plugin to load, before selecting its child elements
+                      let timeOut = setTimeout(() => {
+
+                        // get dropdown element and new parent container
+                        let subifyPlanWrapper = targetNode.querySelector(".subify-root .subify-selling-plan-whole-wrapper");
+                        let subifyWidgetWrapper = targetNode.querySelector(".subify-root .subify-widget-whole-wrapper");
+
+                        // append dropdown to new parent container
+                        subifyWidgetWrapper.appendChild(subifyPlanWrapper);
+
+                        // change default subify btn texts 
+                        let oneTimePurchaseText = targetNode.querySelector("#subify-widget-one-time-purchase-text");
+                        oneTimePurchaseText.innerHTML = "Pay Now";
+
+                        let subscribeText = targetNode.querySelector("#subify-widget-subscription-text");
+                        subscribeText.innerHTML = "Pay Over Time";
+                        
+                        // reveal subify container
+                        targetNode.querySelector(".subify-root").classList.add("show");
+                        clearTimeout(timeOut);
+                      }, 100);
+                    }
+                });
+            }
+        }
+    };
+
+    // Create a new observer with the callback function
+    const observer = new MutationObserver(callback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+
+  },false);
+
+  console.log("where's my hands?");
 }
